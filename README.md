@@ -15,15 +15,11 @@ make stake claims.
 #### Per identity:
 
 * Backup you id folder (better safe than sorry).
-* Run `python2 hidden-id.py my_id_folder` to create the `sstore/templates/` and `sstore/static/` subfolders.
+* Run `python2 hidden-id.py /path/to/my_id_folder` to create the `sstore/templates/` and `sstore/static/` subfolders.
 * You can kill it (you don't need to wait until it establishes the hidden service).
 * Copy the files from `themes/<the theme you want>/templates/` to `my_id_folder/sstore/templates/`.
 * Edit `my_id_folder/sstore/profile.json` according to `themes/<the theme you want>/README.md`.
 
+#### Creating a "fresh" identity:
 
-Notes:
-
-* HiddenID serves `my_folder_id/sstore/static/` as `/static/` so we use that for the avatar.
-* A "fresh" ID has `"avatar":"/static/img/default-avatar.png"` at `sstore/profile.json`,
-  but for a "legacy id" you have to manually add an avatar URL to the profile
-  if you want one (nothing bad happens if you don't).
+Instead of the first 2 steps above, just run `python2 hidden-id.py /path/to/new_id_folder_to_create`.
