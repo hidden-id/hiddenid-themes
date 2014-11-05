@@ -1,6 +1,6 @@
 ### blavatsky HiddenID theme
 
-A minimalistic design by the late [Madame Blavatsky](https://idoru.pl/blavatsky).
+A minimalistic design by the late [Madame Blavatsky](https://idoru.pl/u/blavatsky).
 Supports [stake house](https://github.com/hidden-id/stakehouse#readme).
 
 ![Screenshot](screenshot.jpg)
