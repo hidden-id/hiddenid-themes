@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{profile.nickname}}'s HiddenID server">
+    <meta name="author" content="Helena Petrovna Blavatsky">
+    <link rel="icon" href="/static/img/HiddenID-icon.png">
+    {{#profile.stakes}}
+      <link rel="stake" href="{{.}}">
+    {{/profile.stakes}}
+    {{#endpoint}}
+      <link rel="openid.server" href="{{.}}">
+    {{/endpoint}}
+    {{#yadis}}
+      <meta http-equiv="x-xrds-location" content="{{.}}">
+    {{/yadis}}
+    <title>{{title}} - {{profile.nickname}}'s HiddenID</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/cover.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/static/js/html5shiv.min.js"></script>
+      <script src="/static/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">&#128526; HiddenID</h3>
+              <ul class="nav masthead-nav">
+                <li class="active"><a href="#">{{profile.nickname}}</a></li>
+                {{#logged_in}}
+                  <li><a href="{{check_trusted_url}}">Trusted sites</a></li>
+                {{/logged_in}}
+                {{^logged_in}}
+                  <li><a href="{{login_url}}">Login</a></li>
+                {{/logged_in}}
+                {{#logged_in}}
+                    <li{{#is_password}} class="active"{{/is_password}}>
+                      <a href="{{change_password_url}}">Change password</a>
+                    </li>
+                {{/logged_in}}
+              </ul>
+              {{#logged_in}}
+                      <form method="post" class="navbar-form navbar-right"
+                        role="form" action="{{logout_url}}">
+                        <input type="hidden" name="csrf_token" value="{{csrf_token}}">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                      </form>
+              {{/logged_in}}
+            </div>
+          </div>
+
+          <div class="inner cover">
+            {{#no_password}}
+              {{^is_password}}
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="alert alert-danger" role="alert">
+                      <strong>Note:</strong> Please <a href="{{change_password_url}}">set your password</a>!
+                    </div>
+                  </div>
+                </div>
+              {{/is_password}}
+            {{/no_password}}
+            <h1>HiddenID profile: <small>{{profile.nickname}}</small></h1>
+            <p class="lead">
+              <div class="media">
+                {{#profile.avatar}}
+                  <a class="pull-left" href="#">
+                    <img src="{{profile.avatar}}" alt="{{profile.nickname}}">
+                  </a>
+                {{/profile.avatar}}
+                <div class="media-body text-left">
+                  <dl class="dl-horizontal">
+                    {{#profile.description}}
+                      <dt>About:</dt>
+                      <dd>{{.}}</dd>
+                    {{/profile.description}}
+                    {{^profile.description}}
+                      <dt>Nickname:</dt>
+                      <dd>{{profile.nickname}}</dd>
+                    {{/profile.description}}
+                    {{#profile.homepage}}
+                      <dt>Homepage:</dt>
+                      <dd><a target="_blank" href="{{profile.homepage}}">{{profile.homepage}}</a></dd>
+                    {{/profile.homepage}}
+                  </dl>
+                </div>
+              </div>
+            </p>
+            <p class="lead">
+              <a class="btn btn-default btn-lg" role="button" target="_blank"
+                href="https://hidden-id.github.io">Learn more about HiddenID &raquo;</a>
+            </p>
+          </div>
+
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
