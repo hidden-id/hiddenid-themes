@@ -1,9 +1,9 @@
 Currently, there are 2 themes.
 Both support [Stake House](https://github.com/hidden-id/stakehouse#readme).
 
-* [stakehouse-default](themes/stakehouse-defaut#readme) is exactly like the default theme, but also lets you
+* [stakehouse-default](https://github.com/hidden-id/hiddenid-themes/tree/master/themes/blavatsky#readme) is exactly like the default theme, but also lets you
 make stake claims.
-* [blavatsky](themes/blavatsky#readme) is a minimal design contributed by [Madame Blavatsky](https://idoru.pl/u/blavatsky).
+* [blavatsky](https://github.com/hidden-id/hiddenid-themes/tree/master/themes/blavatsky#readme) is a minimal design contributed by [Madame Blavatsky](https://idoru.pl/u/blavatsky).
 
 
 ### Installing themes
